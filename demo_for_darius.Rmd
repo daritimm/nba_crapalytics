@@ -1,0 +1,26 @@
+---
+title: "My first crapalytics"
+output: html_notebook
+---
+
+# Libraries
+
+```{r}
+library(bbr)
+library(tidyverse)
+```
+
+
+# Loading data
+
+```{r}
+data_2018 <- get_season(2018)
+data_2019 <- get_season(2019)
+```
+
+# Tranforming data
+
+```{r}
+data_2018 %>% left_join(data_2019, by="player", suffix = c(".2018", ".2019"))
+```
+
